@@ -1,0 +1,30 @@
+<h1>Eat the Burger</h1>
+
+<h3>Create your fantasy burger, and then devour it!</h3>
+
+<table border="1" cellpadding="3">
+  	<tr>
+  	   <th>ID</td>
+       <th>Burger</td>
+       <th>Devoured?</td>
+       <th>Timestamp</td>
+  	</tr>
+  {{#each burgers}}
+  	<tr>
+  	   <td>{{this.id}}</td>
+       <td>{{this.burger_name}}</td>
+       <td>{{this.devoured}}</td>
+       <td>{{this.date}}</td>
+	   <td> <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit">Devour this burger</button>
+        </form>
+		</td>
+  	</tr>
+  {{/each}}
+</table>
+<br><br>
+<form action="/" method="POST">
+	<textarea type="text" name="newWish">Create a burger...</textarea>
+	<button type="submit">Submit</button>
+</form>
