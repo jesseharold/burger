@@ -1,15 +1,21 @@
 var orm = require("./../config/orm");
 
 function addBurger(burgerName){
-    return orm.insertOne(burgerName);
+    var data = orm.insertOne(burgerName);
+    console.log(data);
+    return data;
 }
 
 function devourBurger(id){
-    return orm.updateOne(id, "devoured", true);
+    var data =  orm.updateOne(id, "devoured", true);
+    console.log(data);
+    return data;
 }
 
 function getBurgers(){
-    return orm.selectAll;
+    var data = orm.selectAll();
+    console.log(data);
+    return data;
 }
 
 module.exports = {
