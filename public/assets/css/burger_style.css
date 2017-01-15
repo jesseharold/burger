@@ -1,6 +1,7 @@
 body {
     background-color: #d2af05;
     color: white;
+    font-size: 20px;
     font-family: "Raleway", sans-serif;
 }
 h1, h3 {
@@ -21,7 +22,7 @@ h1, h3 {
     float: left;
 }
 .burger {
-    color: black;
+    color: darkred;
     border: 1px solid black;
     max-width: 280px;
     padding: 10px 5px;
