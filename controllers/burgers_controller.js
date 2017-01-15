@@ -7,20 +7,20 @@ var burger = require("./../models/burger");
 // ROUTES
 router.get("/", function (request, response) {
     burger.getBurgers(function(data) {
-        console.log(data);
+        //console.log(data);
         response.render("index", { burgers: data });
     });
 });
 
 router.post("/", function (request, response) {
-    console.log("creating burger ", request.body.name);
-    burger.addBurger(request.body.name, function() {
+    //console.log("creating burger ", request.body.burger_name);
+    burger.addBurger(request.body.burger_name, function() {
         response.redirect("/");
     });
 });
 
 router.put("/:id", function (request, response) {
-    console.log("devouring burger #", request.params.id);
+    //console.log("devouring burger #", request.params.id);
     burger.devourBurger(request.params.id, function() {
         response.redirect("/");
     });

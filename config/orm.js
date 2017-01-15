@@ -1,7 +1,7 @@
 var connection = require("./connection");
 
-function selectAll(callback){
-    connection.query("SELECT id, burger_name, devoured, date FROM burgers", function(err, data) {
+function selectAll(table, callback){
+    connection.query("SELECT id, burger_name, devoured, date FROM ??", [table], function(err, data) {
         if (err) throw err;
         // Test it
         //console.log(data);
@@ -9,8 +9,8 @@ function selectAll(callback){
     });
 }
 
-function insertOne(burgerName, callback){
-    connection.query("INSERT INTO burgers (burger_name) VALUES (?);", [burgerName], function(err, data) {
+function insertOne(table, burgerName, callback){
+    connection.query("INSERT INTO ?? (burger_name) VALUES (?);", [table, burgerName], function(err, data) {
         if (err) throw err;
         // Test it
         //console.log(data);
@@ -18,8 +18,8 @@ function insertOne(burgerName, callback){
     });
 }
 
-function updateOne(id, property, value, callback){
-    connection.query("UPDATE burgers SET ? = ? WHERE id = ?;", [property, value, id], function(err, data) {
+function updateOne(table, id, property, value, callback){
+    connection.query("UPDATE ?? SET ?? = ? WHERE id = ?;", [table, property, value, id], function(err, data) {
         if (err) throw err;
         // Test it
         //console.log(data);

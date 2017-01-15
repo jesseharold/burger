@@ -1,19 +1,19 @@
 var orm = require("./../config/orm");
 
 function addBurger(burgerName, callback){
-    orm.insertOne(burgerName, function(result){
+    orm.insertOne("burgers", burgerName, function(result){
         callback(result);
     });
 }
 
 function devourBurger(id, callback){
-    orm.updateOne(id, "devoured", true, function(result){
+    orm.updateOne("burgers", parseInt(id), "devoured", 1, function(result){
         callback(result);
     });
 }
 
 function getBurgers(callback){
-    orm.selectAll(function(result){
+    orm.selectAll("burgers", function(result){
         callback(result);
     });
 }
