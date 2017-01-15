@@ -1,23 +1,39 @@
-<h1>Eat the Burger</h1>
-
-<h3>Create your fantasy burger, and then devour it!</h3>
-
-<form action="/" method="POST" class="createBurger">
-	<textarea type="text" name="burger_name">Create a burger...</textarea>
-	<button type="submit">Submit</button>
-</form>
-
 <div class="container">
+  <h1>Eat the Burger</h1>
+
+  <h3>Create your fantasy burger, and then devour it!</h3>
+
+  <form action="/" method="POST" class="createBurger">
+    <textarea type="text" name="burger_name">Create a burger...</textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="category undevoured">
   {{#each burgers}}
-  	<div class="burger burgerDevoured{{this.devoured}}">
-       <h3 class="burgerName">{{this.burger_name}}</h3>
-  	   <div class="info infoID">id: {{this.id}}</div>
-       <div class="info infoDate">last modified: {{this.date}}</div>
-	     <form action="/{{this.id}}?_method=PUT" method="POST" class="devourBurger">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit">Devour this burger</button>
-        </form>
-  	</div>
+    {{#unless this.devoured}}
+      <div class="burger">
+        <h3 class="burgerName">{{this.burger_name}}</h3>
+        <div class="info infoID">id: {{this.id}}</div>
+        <div class="info infoDate">last modified: {{this.date}}</div>
+        <form action="/{{this.id}}?_method=PUT" method="POST" class="devourBurger">
+            <input type="hidden" name="id" value="{{this.id}}">
+            <button type="submit">Devour this burger</button>
+          </form>
+      </div>
+    {{/unless}}
   {{/each}}
+  </div>
+
+  <div class="category devoured">
+  {{#each burgers}}
+    {{#if this.devoured}}
+      <div class="burger">
+        <h3 class="burgerName">{{this.burger_name}}</h3>
+        <div class="info infoID">id: {{this.id}}</div>
+        <div class="info infoDate">last modified: {{this.date}}</div>
+      </div>
+    {{/if}}
+  {{/each}}
+  </div>
+
 </div>
-<br clear="all"><br>

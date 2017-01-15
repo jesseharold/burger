@@ -1,23 +1,37 @@
+body {
+    background-color: #d2af05;
+    color: white;
+}
 .container {
     width: 700px;
+    margin: 20px;
     display: block;
 }
+.category{
+    display: block;
+}
+.devoured {
+    float: right;
+}
+.undevoured {
+    float: left;
+}
 .burger {
+    color: black;
     border: 1px solid black;
     max-width: 280px;
     padding: 10px 5px;
     margin: 15px;
     background-color: lightcyan;
 }
+.devoured .burger {
+    background-color: #eee;
+    color: #888;
+    border-color: #999;
+}
 .info {
     font-size: x-small;
     color: #666;
-}
-.infoID {
-    float: left;
-}
-.infoDate {
-    float: right;
 }
 .burgerName {
     margin-top: 0;
@@ -27,10 +41,9 @@ form.devourBurger button {
     margin: 0 auto;
     display: block;
 }
-.burgerDevoured0 {
-    float: left;
+form.createBurger button {
+    vertical-align: top;
 }
-
-.burgerDevoured1 {
-    float: right;
+form.createBurger textarea {
+    width: 265px;
 }
