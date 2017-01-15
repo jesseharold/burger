@@ -2,29 +2,22 @@
 
 <h3>Create your fantasy burger, and then devour it!</h3>
 
-<table border="1" cellpadding="3">
-  	<tr>
-  	   <th>ID</td>
-       <th>Burger</td>
-       <th>Devoured?</td>
-       <th>Timestamp</td>
-  	</tr>
-  {{#each burgers}}
-  	<tr>
-  	   <td>{{this.id}}</td>
-       <td>{{this.burger_name}}</td>
-       <td>{{this.devoured}}</td>
-       <td>{{this.date}}</td>
-	   <td> <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit">Devour this burger</button>
-        </form>
-		</td>
-  	</tr>
-  {{/each}}
-</table>
-<br><br>
-<form action="/" method="POST">
+<form action="/" method="POST" class="createBurger">
 	<textarea type="text" name="burger_name">Create a burger...</textarea>
 	<button type="submit">Submit</button>
 </form>
+
+<div class="container">
+  {{#each burgers}}
+  	<div class="burger burgerDevoured{{this.devoured}}">
+       <h3 class="burgerName">{{this.burger_name}}</h3>
+  	   <div class="info infoID">id: {{this.id}}</div>
+       <div class="info infoDate">last modified: {{this.date}}</div>
+	     <form action="/{{this.id}}?_method=PUT" method="POST" class="devourBurger">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit">Devour this burger</button>
+        </form>
+  	</div>
+  {{/each}}
+</div>
+<br clear="all"><br>

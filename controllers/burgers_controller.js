@@ -5,6 +5,8 @@ var router = express.Router();
 var burger = require("./../models/burger");
 
 // ROUTES
+router.use(express.static('public'));
+
 router.get("/", function (request, response) {
     burger.getBurgers(function(data) {
         //console.log(data);

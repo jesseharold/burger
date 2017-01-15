@@ -1,0 +1,36 @@
+.container {
+    width: 700px;
+    display: block;
+}
+.burger {
+    border: 1px solid black;
+    max-width: 280px;
+    padding: 10px 5px;
+    margin: 15px;
+    background-color: lightcyan;
+}
+.info {
+    font-size: x-small;
+    color: #666;
+}
+.infoID {
+    float: left;
+}
+.infoDate {
+    float: right;
+}
+.burgerName {
+    margin-top: 0;
+    text-align: center;
+}
+form.devourBurger button {
+    margin: 0 auto;
+    display: block;
+}
+.burgerDevoured0 {
+    float: left;
+}
+
+.burgerDevoured1 {
+    float: right;
+}
