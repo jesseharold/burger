@@ -1,6 +1,10 @@
 body {
     background-color: #d2af05;
     color: white;
+    font-family: "Raleway", sans-serif;
+}
+h1, h3 {
+    font-family: "Courgette", cursive;
 }
 .container {
     width: 700px;
