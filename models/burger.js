@@ -1,21 +1,21 @@
 var orm = require("./../config/orm");
 
-function addBurger(burgerName){
-    var data = orm.insertOne(burgerName);
-    console.log(data);
-    return data;
+function addBurger(burgerName, callback){
+    orm.insertOne(burgerName, function(result){
+        callback(result);
+    });
 }
 
-function devourBurger(id){
-    var data =  orm.updateOne(id, "devoured", true);
-    console.log(data);
-    return data;
+function devourBurger(id, callback){
+    orm.updateOne(id, "devoured", true, function(result){
+        callback(result);
+    });
 }
 
-function getBurgers(){
-    var data = orm.selectAll();
-    console.log(data);
-    return data;
+function getBurgers(callback){
+    orm.selectAll(function(result){
+        callback(result);
+    });
 }
 
 module.exports = {

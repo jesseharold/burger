@@ -18,12 +18,10 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// ROUTES
-app.get("/", controller.getRoute);
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
 
-app.post("/", controller.postRoute);
-
-app.put("/", controller.putRoute);
+app.use("/", routes);
 
 app.listen(PORT, function(){
     console.log("app is listening on port ", PORT);

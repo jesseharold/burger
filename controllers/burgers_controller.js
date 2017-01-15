@@ -1,22 +1,30 @@
+var express = require("express");
+var router = express.Router();
+
+// import the model to use the functions
 var burger = require("./../models/burger");
 
-function getRoute(request, response) {
-    var data = burger.getBurgers();
-    response.render("index", { burgers: data });
-}
+// ROUTES
+router.get("/", function (request, response) {
+    burger.getBurgers(function(data) {
+        console.log(data);
+        response.render("index", { burgers: data });
+    });
+});
 
-function postRoute(request, response) {
-    var data = burger.addBurger(request.body.name);
-    response.redirect("/");
-}
+router.post("/", function (request, response) {
+    console.log("creating burger ", request.body.name);
+    burger.addBurger(request.body.name, function() {
+        response.redirect("/");
+    });
+});
 
-function putRoute(request, response) {
-    var data = burger.devourBurger(request.body.id);
-    response.redirect("/");
-}
+router.put("/:id", function (request, response) {
+    console.log("devouring burger #", request.params.id);
+    burger.devourBurger(request.params.id, function() {
+        response.redirect("/");
+    });
+});
 
-module.exports = {
-    getRoute: getRoute,
-    postRoute: postRoute,
-    putRoute: putRoute
-};
+// export for server.js
+module.exports = router;
