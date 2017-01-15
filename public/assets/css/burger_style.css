@@ -6,6 +6,7 @@ body {
 }
 h1, h3 {
     font-family: "Courgette", cursive;
+    text-shadow: black 2px 1px 3px;
 }
 .container {
     width: 700px;
@@ -41,6 +42,7 @@ h1, h3 {
 .burgerName {
     margin-top: 0;
     text-align: center;
+    text-shadow: none;
 }
 form.devourBurger button {
     margin: 10px auto 3px;
