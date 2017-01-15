@@ -13,12 +13,12 @@
     {{#unless this.devoured}}
       <div class="burger">
         <h3 class="burgerName">{{this.burger_name}}</h3>
+        <form action="/{{this.id}}?_method=PUT" method="POST" class="devourBurger">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit">Devour this burger</button>
+        </form>
         <div class="info infoID">id: {{this.id}}</div>
         <div class="info infoDate">last modified: {{this.date}}</div>
-        <form action="/{{this.id}}?_method=PUT" method="POST" class="devourBurger">
-            <input type="hidden" name="id" value="{{this.id}}">
-            <button type="submit">Devour this burger</button>
-          </form>
       </div>
     {{/unless}}
   {{/each}}

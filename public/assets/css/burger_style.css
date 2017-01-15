@@ -43,7 +43,7 @@ h1, h3 {
     text-align: center;
 }
 form.devourBurger button {
-    margin: 0 auto;
+    margin: 10px auto 3px;
     display: block;
 }
 form.createBurger button {
