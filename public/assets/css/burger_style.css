@@ -39,18 +39,18 @@ h1, h3 {
     font-size: x-small;
     color: #666;
 }
-.burgerName {
+.burger-name {
     margin-top: 0;
     text-align: center;
     text-shadow: none;
 }
-form.devourBurger button {
+form.devour-burger button {
     margin: 10px auto 3px;
     display: block;
 }
-form.createBurger button {
+form.create-burger button {
     vertical-align: top;
 }
-form.createBurger textarea {
+form.create-burger textarea {
     width: 265px;
 }

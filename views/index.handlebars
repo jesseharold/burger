@@ -3,7 +3,7 @@
 
   <h3>Create your fantasy burger, and then devour it!</h3>
 
-  <form action="/" method="POST" class="createBurger">
+  <form action="/" method="POST" class="create-burger">
     <textarea type="text" name="burger_name">Create a burger...</textarea>
     <button type="submit">Submit</button>
   </form>
@@ -12,13 +12,13 @@
   {{#each burgers}}
     {{#unless this.devoured}}
       <div class="burger">
-        <h3 class="burgerName">{{this.burger_name}}</h3>
-        <form action="/{{this.id}}?_method=PUT" method="POST" class="devourBurger">
+        <h3 class="burger-name">{{this.burger_name}}</h3>
+        <form action="/{{this.id}}?_method=PUT" method="POST" class="devour-burger">
           <input type="hidden" name="id" value="{{this.id}}">
           <button type="submit">Devour this burger</button>
         </form>
-        <div class="info infoID">id: {{this.id}}</div>
-        <div class="info infoDate">last modified: {{this.date}}</div>
+        <div class="info info-id">id: {{this.id}}</div>
+        <div class="info info-date">last modified: {{this.date}}</div>
       </div>
     {{/unless}}
   {{/each}}
@@ -29,9 +29,9 @@
   {{#each burgers}}
     {{#if this.devoured}}
       <div class="burger">
-        <h3 class="burgerName">{{this.burger_name}}</h3>
-        <div class="info infoID">id: {{this.id}}</div>
-        <div class="info infoDate">last modified: {{this.date}}</div>
+        <h3 class="burger-name">{{this.burger_name}}</h3>
+        <div class="info info-id">id: {{this.id}}</div>
+        <div class="info info-date">last modified: {{this.date}}</div>
       </div>
     {{/if}}
   {{/each}}
